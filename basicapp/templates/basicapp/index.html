@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block titleblock %}
+<title>HOME</title>
+{% endblock titleblock%}
+{% block content%}
+      <div class="jumbotron">
+        <h1>Welcome to home page!</h1>
+      </div>
+      <div class="card-deck">
+        <div class="card">
+          <h5 class="card-header">Predefined</h5>
+          <div class="card-body">
+            <p class="card-text">Perform predefined tasks</p>
+            <a class="btn btn-primary" href="{% url 'operations' %}">Next</a>
+          </div>
+        </div>
+        <div class="card">
+          <h5 class="card-header">Script File execution</h5>
+          <div class="card-body">
+            <p class="card-text">Select from a list of available scripts to execute on target machine</p>
+            <a class="btn btn-primary" href="{% url 'file_select' %}">Next</a>
+          </div>
+        </div>
+      </div>
+    {% endblock content%}

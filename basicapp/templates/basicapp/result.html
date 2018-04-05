@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titleblock %}
+  <title>Output</title>
+  <script>
+    function goBack(){
+      window.history.back()
+    }
+  </script>
+{% endblock titleblock %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h2>Operation Result</h2>
+  </div>
+  <div class="container">
+    <h2>{{output}}</h2>
+    <h4>{{reasons}}</h4>
+    <br />
+    <button onClick="goBack()" class="btn btn-warning">Go Back</button>
+  </div>
+{% endblock content %}

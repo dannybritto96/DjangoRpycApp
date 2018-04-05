@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titleblock %}
+  <title>Predefined operations</title>
+{% endblock titleblock %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="row form-group container">
+      <div class="col-md-4">
+        <label for="ip_address">Target machine IP</label>
+        <input type="text" class="form-control" name="ip_address" id="ip_address" required aria-describedby="ip_help" placeholder="XX.XX.XX.XX" />
+        <small id="ip_help" class="form-text text-muted">Make sure that you are in the network.</small>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col-md-3">
+        <div class="card">
+          <h5 class="card-header">Ping</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ping to IP/domain</h5>
+              <input type="submit" class="btn btn-primary" name= 'ping' value="Ping"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <h5 class="card-header">Update</h5>
+          <div class="card-body">
+            <h5 class="card-title">Update System</h5>
+              <input type="submit" class="btn btn-primary" name = 'update' value="Update"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock content %}

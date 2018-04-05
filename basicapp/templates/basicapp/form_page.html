@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block titleblock%}
+  <title>Task</title>
+{% endblock titleblock %}
+{% block content %}
+    <div class="container">
+        <h1>Fill out the form!</h1>
+    </div>
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+  {% endblock content %}

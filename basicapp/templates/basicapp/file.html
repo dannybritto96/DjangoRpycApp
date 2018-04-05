@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block titleblock %}
+  <title>Execute script</title>
+{% endblock titleblock %}
+
+{% block nav %}
+  <li class="nav-item">
+    <a class="nav-link" style="color:#ff8080" href="{% url 'add_file' %}">Add file</a>
+  </li>
+{% endblock nav %}
+
+{% block content %}
+  <div class="row container">
+    <h3>Script Operations</h3>
+  </div>
+  <br />
+  <form method='POST'>
+    {% csrf_token %}
+    <div class="form-group">
+      <h4>Target machine IP</h4>
+      <input type="text" class="form-control" name="ip_address" id="ip_address" required aria-describedby="ip_help" placeholder="XX.XX.XX.XX" />
+      <small id="ip_help" class="form-text text-muted">Make sure that you are in the network.</small>
+    </div>
+    <h4>Select script:</h4>
+    <div class="container">
+      <div class="form-check">
+        <ul class="list-unstyled">
+          {% for item in file_list %}
+              <li>
+                <input class="form-check-input" type="radio" name="file_radio" id="{{ item }}" value="{{ item }}" required/>
+                <label class="form-check-label" for="{{ item }}">{{ item }}</label>
+              </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Execute" />
+      </div>
+    </div>
+  </form>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titleblock %}
+  <title>Add File</title>
+{% endblock titleblock %}
+
+{% block content %}
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="scriptFile">Select file to upload</label>
+        <input type="file" class="form-control-file" id="scriptFile" name ="scriptFile" aria-describedby="fileHelp" required/>
+        <small id = "fileHelp" class="form-text text-muted">Upload valid script file.</small>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="num">Number of parameters</label>
+          <input type="number" class="form-control" name = "num" id="num" min=0 value=0 required/>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary btn-default" value="Submit" />
+    </form>
+  </div>
+{% endblock content %}
