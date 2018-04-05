@@ -31,6 +31,11 @@ Users can also upload script files where arguments are taken as sys arguments to
 
 Web client can connect to the target machine without any authentication process as RPyC takes care of it. The security game can be anted up by using key files whose path can be supplied as an argument while executing daemon process. Forms by default have an CSRF token embedded making it secure from web scrapers or bots.
 
+### Create superuser to login
+<pre>
+python manage.py createsuperuse
+</pre>
+
 
 The application is cross-platform compliant. By default it throws an error page when a .bat file is tried to be executed on a POSIX system and the vice versa for .sh files on Windows environments.
 
